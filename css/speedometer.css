@@ -1,0 +1,99 @@
+
+.envelope {
+	background: radial-gradient(#f15252, #f3f34a, #19e219);
+	position: relative;	
+	box-shadow: 1px 1px 10px 7px #8d948c;
+	-webkit-box-shadow: 1px 1px 10px 7px #8d948c;
+	-o-box-shadow: 1px 1px 10px 7px #8d948c;
+	-moz-box-shadow: 1px 1px 10px 7px #8d948c;	
+	border-radius:50%;
+	-webkit-border-radius:50%;
+	-o-border-radius:50%;
+	-moz-border-radius:50%;
+}
+.speedNobe{
+	position:absolute;
+	width:100%;
+	z-index:10;	
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+	-moz-transition: all 1s;	
+}
+.speedPosition {
+	position: absolute;
+	color: #2316d4;
+	text-align: center;
+	line-height: 80PX;
+	font-family:arial;
+	font-size: 30px;
+	font-weight:bold;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-o-border-radius: 50%;
+	-moz-border-radius: 50%;
+	background: #b2ee3c;
+	box-shadow: 0 0 3px 3px #87960a;
+	-webkit-box-shadow: 0 0 3px 3px #87960a;
+	-moz-box-shadow: 0 0 3px 3px #87960a;
+	-o-box-shadow: 0 0 3px 3px #87960a;
+}
+.fonts
+{
+	font-family:arial;
+	font-weight:bold;
+	width:100%;
+	text-align:center;
+}
+
+.speedNobe div{
+	background: -webkit-linear-gradient(left, red , yellow);
+	background: -o-linear-gradient(left, red , yellow);
+	background: -mox-linear-gradient(left, red , yellow);
+	background: linear-gradient(left, red , yellow);
+	position: absolute;
+	height: 100%;
+	top: 0;
+}
+.numb,.nob{
+	transition: opacity 1s;
+	-webkit-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	-moz-transition: opacity 1s;	
+	position: absolute;
+	opacity: 0.5;
+}
+.nob{
+	
+	background:#3c61ef;
+	box-shadow: 0 0 2px 1px #eee;
+	-webkit-box-shadow: 0 0 2px 1px #eee;
+	-moz-box-shadow: 0 0 2px 1px #eee;
+	-o-box-shadow: 0 0 2px 1px #eee;
+}
+.numb{
+	
+	color:#1232d8;
+	text-align: left;
+	overflow: hidden;
+	opacity: 0.5;
+	font-family: arial;
+	font-size: 16px;
+	font-weight: bold;
+}
+.nob.bright{
+	opacity: 1;
+}
+.nob.danger{
+	background:#FF113A;
+	box-shadow: 0 0 2px 1px #FF113A;
+	-webkit-box-shadow: 0 0 2px 1px #FF113A;
+	-moz-box-shadow: 0 0 2px 1px #FF113A;
+	-o-box-shadow: 0 0 2px 1px #FF113A;
+}
+.numb.bright{
+	opacity: 1;
+}
+.numb.danger{
+	color: #FF113A;
+}
