@@ -9,7 +9,7 @@
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/speedometer.js"></script>
 <script type="text/javascript">
-	var spm=$("#myValues").myfunc({divFact:10});
+	var spm=$("#myValues").getSPM({divFact:10});
 	setInterval(function(){spm.changePosition(parseInt(Math.random()*80))},1000);
 </script>
 </html>
