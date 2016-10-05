@@ -86,10 +86,10 @@
 }
 .nob.danger{
 	background:#FF113A;
-	box-shadow: 0 0 2px 1px #FF113A;
-	-webkit-box-shadow: 0 0 2px 1px #FF113A;
-	-moz-box-shadow: 0 0 2px 1px #FF113A;
-	-o-box-shadow: 0 0 2px 1px #FF113A;
+	box-shadow: 0 0 1px 0px #FF113A;
+	-webkit-box-shadow: 0 0 1px 0px #FF113A;
+	-moz-box-shadow: 0 0 1px 0px #FF113A;
+	-o-box-shadow: 0 0 1px 0px #FF113A;
 }
 .numb.bright{
 	opacity: 1;
