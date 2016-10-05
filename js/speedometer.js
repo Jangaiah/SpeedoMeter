@@ -1,4 +1,4 @@
-$.fn.myfunc = function (userPref) {
+$.fn.getSPM = function (userPref) {
   var self = this;
   this.defaultProperty = {
     maxVal              : 250,         /**Max value of the meter*/
@@ -174,8 +174,5 @@ $.fn.myfunc = function (userPref) {
   }
 
   this.creatHtmlsElecments();
-  //$(this).bind(this.defaultProperty.eventListenerType,this.changePosition);
-  //setInterval(function(){self.changePosition(parseInt(Math.random()*80));},100);
-  //self.changePosition(userPref.givenNum);
   return self;
 }
