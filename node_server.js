@@ -5,9 +5,10 @@ var http = require("http"),
     port = process.argv[2] || 8000;
 
 http.createServer(function(request, response) {
-
+console.log(request.headers['user-agent']);
   var uri = url.parse(request.url).pathname
     , filename = path.join(process.cwd(), uri);
+    //console.log("Requested url : "+request.url.toString());
   fs.exists(filename, function(exists) {
     if(!exists) {
       response.writeHead(404, {"Content-Type": "text/plain"});
@@ -21,14 +22,13 @@ http.createServer(function(request, response) {
     fs.readFile(filename, "binary", function(err, file) {
       if(err) {        
         response.writeHead(500, {"Content-Type": "text/plain"});
-        response.url
         response.write(err + "\n");
         response.end();
         return;
       }
-
-      
-      response.writeHead(200);
+     
+      if(request.url.toString().indexOf(".css")>0)  response.writeHead(200, {"Content-Type": "text/css"});
+      else response.writeHead(200);
       response.write(file, "binary");
       response.end();
     });
