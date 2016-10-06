@@ -49,7 +49,8 @@
 .speedNobe div{
 	background: -webkit-linear-gradient(left, red , yellow);
 	background: -o-linear-gradient(left, red , yellow);
-	background: -mox-linear-gradient(left, red , yellow);
+	background: -ms-linear-gradient(left, red , yellow);
+	background: -moz-linear-gradient(left, red , yellow);
 	background: linear-gradient(left, red , yellow);
 	position: absolute;
 	height: 100%;
