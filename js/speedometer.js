@@ -1,9 +1,9 @@
 $.fn.getSPM = function (userPref) {
   var self = this;
   this.defaultProperty = {
-    maxVal              : 250,         /**Max value of the meter*/
-    divFact             : 10,          /**Division value of the meter*/
-    dangerLevel         : 210,         /**more than this leval, color will be red*/
+    maxVal              : 1000,         /**Max value of the meter*/
+    divFact             : 50,          /**Division value of the meter*/
+    dangerLevel         : 750,         /**more than this leval, color will be red*/
     initDeg             : -45,         /**reading begins angle*/
     maxDeg              : 270,         /**total angle of the meter reading*/
     edgeRadius          : 150,         /**radius of the meter circle*/
@@ -19,10 +19,10 @@ $.fn.getSPM = function (userPref) {
     numbH               : 16,          /**indicator number height*/
     midNobW             : 10,          /**indicator mid nob width*/
     midNobH             : 3,           /**indicator mid nob height*/
-    noOfSmallDiv        : 2,           /**no of small div between main div*/
+    noOfSmallDiv        : 5,           /**no of small div between main div*/
     eventListenerType   : 'change',    /**type of event listener*/
     multiplier          : 1,	       /**Center value multiplier e.g. 1 x 1000 RPM*/	
-    gagueLabel   	: 'num/s'       /**Label on guage Face*/	
+    gagueLabel   	      : 'num/s'       /**Label on guage Face*/	
   }
   if(typeof userPref === 'object')
   for (var prop in userPref)this.defaultProperty[prop] = userPref[prop];
@@ -42,7 +42,7 @@ $.fn.getSPM = function (userPref) {
   this.setCssProperty = function(){
     var tempStyleVar = [
       '<style>',
-        '#' + this.id+'{',
+        '#' + this.id+'{',  
           'width  :'+ speedoWH + 'px;',
           'height :'+ speedoWH + 'px;',
         '}',
@@ -54,6 +54,7 @@ $.fn.getSPM = function (userPref) {
           'height            :'+ this.defaultProperty.speedNobeH + 'px;',
           'top               :'+ speedNobeTop + 'px;',
           'transform         :rotate('+speedNobeAngle+'deg);',
+          '-ms-transform         :rotate('+speedNobeAngle+'deg);',
           '-webkit-transform :rotate('+speedNobeAngle+'deg);',
           '-moz-transform    :rotate('+speedNobeAngle+'deg);',
           '-o-transform      :rotate('+speedNobeAngle+'deg);',
@@ -82,7 +83,7 @@ $.fn.getSPM = function (userPref) {
         '}',
       '</style>'
     ].join('');
-    this.append(tempStyleVar);    
+    $("html head").append(tempStyleVar);
   }
   this.creatHtmlsElecments = function(){
     this.id= 'speedometerWraper-' + $(this).attr('id');
@@ -110,6 +111,7 @@ $.fn.getSPM = function (userPref) {
         induCatorLinesPosTop  = (this.defaultProperty.edgeRadius - induCatorLinesPosY)-10;
         var tempDegInd = [
                   'transform         :rotate('+curDig+'deg)',
+                  '-ms-transform     :rotate('+curDig+'deg)',
                   '-webkit-transform :rotate('+curDig+'deg)',
                   '-o-transform      :rotate('+curDig+'deg)',
                   '-moz-transform    :rotate('+curDig+'deg)'
@@ -123,6 +125,7 @@ $.fn.getSPM = function (userPref) {
         induCatorLinesPosTop = (this.defaultProperty.edgeRadius - induCatorLinesPosY)-(this.defaultProperty.midNobW/2);
         var tempDegInd = [
                   'transform         :rotate('+curDig+'deg)',
+                  '-ms-transform         :rotate('+curDig+'deg)',
                   '-webkit-transform :rotate('+curDig+'deg)',
                   '-o-transform      :rotate('+curDig+'deg)',
                   '-moz-transform    :rotate('+curDig+'deg)'
@@ -137,7 +140,7 @@ $.fn.getSPM = function (userPref) {
       '<div class="speedNobe">',
         '<div></div>',
       '</div>',
-      '<div class="speedPosition"></div>'
+      '<div class="speedPosition">0</br>'+this.defaultProperty.gagueLabel+'</div>'
     ].join('');
 
     this.find(".envelope").append(speedNobe+tempDiv);
@@ -154,7 +157,8 @@ $.fn.getSPM = function (userPref) {
     speedInDeg = (self.defaultProperty.maxDeg/self.defaultProperty.maxVal)*speed + self.defaultProperty.initDeg;
     
     self.find(".speedNobe").css({
-      "-webkit-transform" :'rotate('+speedInDeg+'deg)',
+      "transform" :'rotate('+speedInDeg+'deg)',
+      "-ms-transform" :'rotate('+speedInDeg+'deg)',
       "-webkit-transform" :'rotate('+speedInDeg+'deg)',
       "-moz-transform"    :'rotate('+speedInDeg+'deg)',
       "-o-transform"      :'rotate('+speedInDeg+'deg)'
