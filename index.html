@@ -4,12 +4,13 @@
 <link href="css/speedometer.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<div id="myValues"/>
-</body>
+<div id="myValues"></div>
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/speedometer.js"></script>
 <script type="text/javascript">
-	var spm=$("#myValues").getSPM({divFact:10});
-	setInterval(function(){spm.changePosition(parseInt(Math.random()*80))},1000);
+	//var spm=$("#myValues").myfunc({divFact:10});
+	var spm=$("#myValues").getSPM({});
+	setInterval(function(){spm.changePosition(parseInt(Math.random()*1000))},1000);
 </script>
+</body>
 </html>
