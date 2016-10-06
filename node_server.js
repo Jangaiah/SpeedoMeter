@@ -8,11 +8,10 @@ http.createServer(function(request, response) {
 
   var uri = url.parse(request.url).pathname
     , filename = path.join(process.cwd(), uri);
-
   fs.exists(filename, function(exists) {
     if(!exists) {
       response.writeHead(404, {"Content-Type": "text/plain"});
-      response.write("404 Not Found\n");
+      response.write("404 Not Found\n");      
       response.end();
       return;
     }
@@ -28,9 +27,10 @@ http.createServer(function(request, response) {
         return;
       }
 
+      
       response.writeHead(200);
       response.write(file, "binary");
       response.end();
     });
   });
-}).listen(parseInt(port, 10));
+}).listen(parseInt(port, 10),function(){console.log("Server is listening at "+port);});
